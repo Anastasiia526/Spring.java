@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="knight" class="theKnightAndHisQuests.model.Knight">
+        <constructor-arg index="0" value="Bogdan Zaliznyy"/>
+        <constructor-arg index="1" value="200"/>
+        <constructor-arg index="2" value="100"/>
+        <constructor-arg index="3" value="100"/>
+    </bean>
+
+
+    <bean id="questResult" class="theKnightAndHisQuests.model.QuestResult"/>
+
+
+    <bean id="killTheDragonQuest" class="theKnightAndHisQuests.realization.KillTheDragonQuest">
+        <constructor-arg index="0" value="Dragon"/>
+        <constructor-arg index="1" value="sword"/>
+        <constructor-arg index="2" value="200"/>
+    </bean>
+
+    <bean id="escortQuest" class="theKnightAndHisQuests.realization.EscortQuest">
+        <constructor-arg type="theKnightAndHisQuests.model.EscortType" value="MERCHANT"/>
+    </bean>
+
+    <bean id="saveThePrincessQuest" class="theKnightAndHisQuests.realization.SaveThePrincessQuest"/>
+
+
+</beans>
