@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="abonent1" class="PersonWithMap.Abonent">
+            <constructor-arg index="0" value="Ivan"/>
+            <constructor-arg index="1" value="22"/>
+    </bean>
+    <bean id="abonent2" class="PersonWithMap.Abonent">
+            <constructor-arg index="0" value="Taras"/>
+            <constructor-arg index="1" value="33"/>
+    </bean>
+
+
+    <util:map id="subscriberMap" scope="singleton" map-class="java.util.HashMap">
+
+        <entry key="first" value-ref="abonent1"/>
+        <entry key="second" value-ref="abonent2"/>
+    </util:map>
+
+    <bean id="notificationService" class="PersonWithMap.NotificationService">
+        <property name="subscribers" ref="subscriberMap"/>
+    </bean>
+</beans>
